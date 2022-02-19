@@ -2,10 +2,14 @@ import './App.scss';
 
 function App() {
   return (
-    <>
-      Build your Pets App here ;)
-      <h1>test</h1>
-    </>
+    <div className="app">
+      <header className="header">
+        <div className="header__inner">
+          <span className="header__logo"></span>
+        </div>
+      </header>
+      <h1>Pets</h1>
+    </div>
   );
 }
 

@@ -1,1 +1,11 @@
-/* App CSS */
+.app {
+  .header {
+    background-color: $colorLightYellow;
+    height: 182px;
+
+    &__inner {
+    }
+    &__logo {
+    }
+  }
+}
