@@ -1,11 +1,20 @@
 .app {
   .header {
-    background-color: $colorLightYellow;
-    height: 182px;
+    background-color: $colorWhite;
+
+    @include breakpoint(LARGE) {
+      background-color: $colorLightYellow;
+      height: 90px;
+    }
 
     &__inner {
     }
     &__logo {
     }
+  }
+
+  .footer {
+    background-color: $colorLightBlue;
+    height: 60px;
   }
 }
