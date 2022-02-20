@@ -35,7 +35,7 @@ const App = () => {
         <SearchBar />
         <DropDown />
 
-        <h1>Results</h1>
+        <h2>Results</h2>
 
         <ul className="cards">
           {pets.slice(0, 3).map((pet, index) => (

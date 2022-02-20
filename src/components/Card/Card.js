@@ -16,7 +16,7 @@ const Card = ({ data }) => {
   return (
     <li className="card">
       <img className="card__photo" src={dogImage} alt="A cat named Dann" />
-      <span className="card__petName">Dann</span>
+      <h3>Dann</h3>
       <Button href="#" onClick={onCardClick} variant={ButtonVariant.BLUE}>
         View
       </Button>
