@@ -1,4 +1,21 @@
 .app {
+  .cards {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin: 20px 0 45px;
+  }
+
+  .container {
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .footer {
+    background-color: $colorLightBlue;
+    height: 60px;
+  }
+
   .header {
     background-color: $colorWhite;
 
@@ -12,17 +29,7 @@
     }
   }
 
-  .container {
-    margin: 0 auto;
-    padding: 0 20px;
-  }
-
   .searchHeading {
     margin: 0 0 30px;
-  }
-
-  .footer {
-    background-color: $colorLightBlue;
-    height: 60px;
   }
 }

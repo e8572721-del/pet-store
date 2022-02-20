@@ -1,0 +1,20 @@
+.card {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+
+  &__photo {
+    border-radius: 15px;
+    height: 130px;
+    object-fit: cover;
+    width: 170px;
+  }
+
+  &__petName {
+    font-weight: 400;
+  }
+
+  &__cta {
+    flex-basis: 13%;
+  }
+}
