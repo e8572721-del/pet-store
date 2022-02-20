@@ -9,6 +9,10 @@
   text-decoration: none;
   width: 45px;
 
+  &:hover {
+    background-color: $colorCuriousBlue;
+  }
+
   &__icon {
     height: 24px;
     width: 24px;
