@@ -1,5 +1,6 @@
 import './SearchBar.scss';
 import Icon from './../Icon/Icon';
+import PropTypes from 'prop-types';
 
 const SearchBar = (props) => {
   return (
@@ -22,5 +23,7 @@ const SearchBar = (props) => {
     </section>
   );
 };
+
+SearchBar.propTypes = {};
 
 export default SearchBar;
