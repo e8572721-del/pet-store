@@ -3,6 +3,7 @@ import Icon from './components/Icon/Icon';
 import useCheckMobile from './hooks/useCheckMobile';
 import { useEffect, useState } from 'react';
 import SearchBar from './components/SearchBar/SearchBar';
+import DropDown from './components/DropDown/DropDown';
 
 const App = () => {
   const { isMobile } = useCheckMobile();
@@ -27,6 +28,7 @@ const App = () => {
         <h1 className="searchHeading">Pets</h1>
 
         <SearchBar />
+        <DropDown />
 
         <h1>Results</h1>
       </div>

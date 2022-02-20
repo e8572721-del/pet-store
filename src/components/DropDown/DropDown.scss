@@ -1,0 +1,58 @@
+.dropdown {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+
+  &__container {
+    width: 100px;
+  }
+
+  &__button {
+    border-radius: 50px;
+    background: $colorWhite;
+    border: 1px solid $colorGrey;
+    width: 100%;
+    padding: 6px 8px;
+    position: relative;
+    text-align: left;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &::after {
+      position: absolute;
+      right: 6px;
+      top: 4px;
+      content: '\2191';
+    }
+
+    &-expanded::after {
+      content: '\2193';
+    }
+  }
+
+  &__options {
+    border: 1px solid hotpink;
+    display: none;
+    list-style: none;
+    padding: 4px 0;
+    margin-top: -4px;
+
+    &-show {
+      display: block;
+    }
+  }
+
+  &__option {
+    padding: 6px 10px;
+
+    &:active,
+    &:focus,
+    &:hover,
+    [aria-selected='true'] {
+      background: pink;
+      cursor: pointer;
+    }
+  }
+}
