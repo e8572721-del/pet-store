@@ -2,18 +2,18 @@
   .cards {
     display: flex;
     flex-direction: column;
-    gap: 25px;
-    margin: 20px 0 45px;
+    gap: rem-value(25);
+    margin: rem-value(20) 0 rem-value(45);
   }
 
   .container {
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 rem-value(20);
   }
 
   .footer {
     background-color: $colorLightBlue;
-    height: 60px;
+    height: rem-value(60);
   }
 
   .header {
@@ -21,15 +21,15 @@
 
     @include breakpoint(LARGE) {
       background-color: $colorLightYellow;
-      height: 90px;
+      height: rem-value(90);
     }
 
     &__inner {
-      padding: 30px 20px;
+      padding: rem-value(30) rem-value(20);
     }
   }
 
   .searchHeading {
-    margin: 0 0 30px;
+    margin: 0 0 rem-value(30);
   }
 }

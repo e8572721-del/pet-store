@@ -3,14 +3,14 @@
   justify-content: center;
 
   &__container {
-    width: 100px;
+    width: rem-value(100);
   }
 
   &__button {
     background: $colorWhite;
-    border-radius: 50px;
+    border-radius: rem-value(50);
     border: 1px solid $colorGrey;
-    padding: 6px 8px;
+    padding: rem-value(6) rem-value(8);
     position: relative;
     text-align: left;
     width: 100%;
@@ -22,8 +22,8 @@
     &::after {
       content: '\2191';
       position: absolute;
-      right: 6px;
-      top: 4px;
+      right: rem-value(6);
+      top: rem-value(4);
     }
 
     &-expanded::after {
@@ -34,8 +34,8 @@
   &__options {
     border: 1px solid hotpink;
     display: none;
-    margin-top: -4px;
-    padding: 4px 0;
+    margin-top: rem-value(-4);
+    padding: rem-value(4) 0;
 
     &-show {
       display: block;
@@ -43,7 +43,7 @@
   }
 
   &__option {
-    padding: 6px 10px;
+    padding: rem-value(6) rem-value(10);
 
     &:active,
     &:focus,
