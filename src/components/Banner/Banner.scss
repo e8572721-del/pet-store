@@ -1,0 +1,55 @@
+.banner {
+  display: flex;
+  flex-direction: column;
+  height: rem-value(283);
+  margin: 0 rem-value(-20) rem-value(50);
+  overflow: hidden;
+
+  &__content {
+    align-items: center;
+    background-color: $colorLightBlue;
+    display: flex;
+    height: rem-value(70);
+    justify-content: space-between;
+    padding: rem-value(25) rem-value(23);
+    width: 100%;
+
+    @include breakpoint(LARGE) {
+      align-items: flex-start;
+      flex-direction: column;
+      flex-grow: 3.6;
+      gap: rem-value(25);
+      height: auto;
+      max-width: rem-value(388);
+      padding: rem-value(70) rem-value(30);
+      width: auto;
+    }
+  }
+
+  &__cta {
+    @include breakpoint(LARGE) {
+      padding: rem-value(25) rem-value(115);
+    }
+  }
+
+  &__description,
+  &__heading {
+    color: $colorWhite;
+  }
+
+  &__photo {
+    max-height: 100%;
+    object-fit: cover;
+
+    @include breakpoint(LARGE) {
+      flex-grow: 6.4;
+    }
+  }
+
+  @include breakpoint(LARGE) {
+    border-radius: rem-value(15);
+    flex-direction: row-reverse;
+    height: rem-value(321);
+    margin: 0 0 rem-value(50);
+  }
+}
