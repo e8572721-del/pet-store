@@ -1,6 +1,6 @@
 html {
   box-sizing: border-box;
-  font-size: 10px;
+  font-size: $baseFontSize + px;
 }
 
 *,
@@ -63,4 +63,16 @@ input[type='search']::-webkit-search-cancel-button,
 input[type='search']::-webkit-search-results-button,
 input[type='search']::-webkit-search-results-decoration {
   -webkit-appearance: none;
+}
+
+h1 {
+  @include fluid-type(26px, 33px);
+}
+
+h2 {
+  @include fluid-type(23px, 28px);
+}
+
+h3 {
+  @include fluid-type(20px, 23px);
 }
