@@ -1,0 +1,30 @@
+.searchBar {
+  margin: 0 0 30px;
+
+  &__icon {
+    left: 20px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    svg {
+      fill: $colorLightBlue;
+    }
+  }
+
+  &__input {
+    background-color: $colorGrey;
+    border-radius: 50px;
+    border: none;
+    padding: 26px 58px;
+    width: 100%;
+
+    &:focus {
+      outline: 1px solid $colorLightBlue;
+    }
+  }
+
+  &__label {
+    position: relative;
+  }
+}
