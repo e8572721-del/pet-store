@@ -46,16 +46,19 @@ fieldset {
 ::-webkit-input-placeholder {
   color: $colorDarkGrey;
   font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
 }
 
 ::-moz-placeholder {
   color: $colorDarkGrey;
   font-family: 'Open Sans', sans-serif;
   opacity: 1;
+  font-size: 16px;
 }
 :-ms-input-placeholder {
   color: $colorDarkGrey;
   font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
 }
 
 input[type='search']::-webkit-search-decoration,
@@ -75,4 +78,8 @@ h2 {
 
 h3 {
   @include fluid-type(20px, 23px);
+}
+
+h4 {
+  font-size: 18px;
 }
