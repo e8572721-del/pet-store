@@ -1,30 +1,29 @@
 .dropdown {
   display: flex;
   justify-content: center;
-  padding-top: 20px;
 
   &__container {
     width: 100px;
   }
 
   &__button {
-    border-radius: 50px;
     background: $colorWhite;
+    border-radius: 50px;
     border: 1px solid $colorGrey;
-    width: 100%;
     padding: 6px 8px;
     position: relative;
     text-align: left;
+    width: 100%;
 
     &:hover {
       cursor: pointer;
     }
 
     &::after {
+      content: '\2191';
       position: absolute;
       right: 6px;
       top: 4px;
-      content: '\2191';
     }
 
     &-expanded::after {
@@ -35,9 +34,8 @@
   &__options {
     border: 1px solid hotpink;
     display: none;
-    list-style: none;
-    padding: 4px 0;
     margin-top: -4px;
+    padding: 4px 0;
 
     &-show {
       display: block;

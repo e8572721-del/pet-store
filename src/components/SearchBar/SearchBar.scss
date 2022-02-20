@@ -2,10 +2,12 @@
   margin: 0 0 30px;
 
   &__icon {
+    height: 20px;
     left: 20px;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    width: 20px;
 
     svg {
       fill: $colorLightBlue;
