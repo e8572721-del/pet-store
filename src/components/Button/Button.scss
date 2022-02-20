@@ -3,7 +3,7 @@
   background-color: $colorLightBlue;
   border-radius: 50%;
   color: $colorWhite;
-  display: flex;
+  display: inline-flex;
   height: rem-value(45);
   justify-content: center;
   text-decoration: none;
@@ -24,11 +24,16 @@
 
   @include breakpoint(LARGE) {
     border-radius: rem-value(50);
-    padding: rem-value(25) rem-value(70);
+    padding: rem-value(25) rem-value(50);
+    width: fit-content;
 
     &-white {
       background-color: $colorWhite;
       color: $colorDarkestBlue;
+
+      &:hover {
+        background-color: $colorGrey;
+      }
     }
   }
 }
