@@ -4,11 +4,20 @@
     flex-direction: column;
     gap: rem-value(25);
     margin: rem-value(20) 0 rem-value(45);
+
+    @include breakpoint(LARGE) {
+      flex-direction: row;
+    }
   }
 
   .container {
     margin: 0 auto;
-    padding: 0 rem-value(20);
+    padding: rem-value(10) rem-value(20);
+
+    @include breakpoint(LARGE) {
+      max-width: rem-value(1070);
+      padding: rem-value(63) rem-value(20);
+    }
   }
 
   .footer {
@@ -18,14 +27,15 @@
 
   .header {
     background-color: $colorWhite;
+    padding: rem-value(30) rem-value(20);
 
     @include breakpoint(LARGE) {
       background-color: $colorLightYellow;
       height: rem-value(90);
+      padding: rem-value(15) rem-value(75);
     }
 
     &__inner {
-      padding: rem-value(30) rem-value(20);
     }
   }
 

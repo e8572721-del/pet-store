@@ -10,12 +10,12 @@
     width: rem-value(20);
 
     svg {
-      fill: $colorLightBlue;
+      fill: $colorDodgerBlue;
     }
   }
 
   &__input {
-    background-color: $colorGrey;
+    background-color: $colorWhiteSmoke;
     border-radius: rem-value(50);
     border: none;
     padding: rem-value(26) rem-value(58);
@@ -23,6 +23,13 @@
 
     &:focus {
       outline: 1px solid $colorLightBlue;
+    }
+
+    @include breakpoint(LARGE) {
+      max-width: rem-value(650);
+      background-color: transparent;
+      border: 1px solid $colorLightGrey;
+      padding: rem-value(22) rem-value(58);
     }
   }
 

@@ -6,6 +6,8 @@ import DropDown from './components/DropDown/DropDown';
 import Icon from './components/Icon/Icon';
 import SearchBar from './components/SearchBar/SearchBar';
 import useCheckMobile from './hooks/useCheckMobile';
+import Banner from './components/Banner/Banner';
+import treats from './assets/images/treats.jpg';
 
 const App = () => {
   const { isMobile } = useCheckMobile();
@@ -19,13 +21,20 @@ const App = () => {
     setHeaderLogo(headerLogoCondition);
   }, [isMobile, headerLogoCondition]);
 
+  // TODO: extract cards into their own component
+
+  // TODO: show available pets
+  const availablePets = pets.filter((item) => item.available === 'Yes');
+  const onBannerCtaClick = (event) => {
+    event.preventDefault();
+    console.log(availablePets);
+  };
+
   return (
     <div className="app">
       <header className="header">
-        <div className="header__inner">
-          <div className="header__logo">
-            <Icon name={headerLogo} />
-          </div>
+        <div className="header__logo">
+          <Icon name={headerLogo} />
         </div>
       </header>
 
@@ -42,6 +51,15 @@ const App = () => {
             <Card key={`animal-card-${index}`} />
           ))}
         </ul>
+
+        <Banner
+          ctaLabel="See all"
+          description="See all pets available for adoption, promote them and get them a home."
+          heading="Pets directory"
+          onBannerCtaClick={onBannerCtaClick}
+          photo={treats}
+          photoAlt="Dog treats"
+        />
       </div>
 
       <footer className="footer"></footer>

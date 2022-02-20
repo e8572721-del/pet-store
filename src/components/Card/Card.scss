@@ -8,9 +8,20 @@
     height: rem-value(130);
     object-fit: cover;
     width: rem-value(170);
+
+    @include breakpoint(LARGE) {
+      height: rem-value(250);
+      width: rem-value(328);
+    }
   }
 
   &__cta {
     flex-basis: 13%;
+  }
+
+  @include breakpoint(LARGE) {
+    flex-direction: column;
+    gap: rem-value(17);
+    align-items: flex-start;
   }
 }
