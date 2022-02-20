@@ -8,9 +8,17 @@
     }
 
     &__inner {
+      padding: 30px 20px;
     }
-    &__logo {
-    }
+  }
+
+  .container {
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .searchHeading {
+    margin: 0 0 30px;
   }
 
   .footer {
