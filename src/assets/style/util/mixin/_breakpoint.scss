@@ -15,7 +15,15 @@
     @media (min-width: 1024px) {
       @content;
     }
+  } @else if $class == XLARGE {
+    @media (min-width: 1440px) {
+      @content;
+    }
+  } @else if $class == XXLARGE {
+    @media (min-width: 2560px) {
+      @content;
+    }
   } @else {
-    @warn "Breakpoint mixin supports: XSMALL, SMALL, MEDIUM, LARGE";
+    @warn "Breakpoint mixin supports: XSMALL, SMALL, MEDIUM, LARGE, XLARGE, XXLARGE";
   }
 }
