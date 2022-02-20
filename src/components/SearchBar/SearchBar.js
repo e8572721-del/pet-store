@@ -1,6 +1,6 @@
 import './SearchBar.scss';
 import Icon from './../Icon/Icon';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 const SearchBar = (props) => {
   return (
@@ -24,6 +24,6 @@ const SearchBar = (props) => {
   );
 };
 
-SearchBar.propTypes = {};
+// SearchBar.propTypes = {};
 
 export default SearchBar;
