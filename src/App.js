@@ -1,14 +1,19 @@
-import './App.scss';
-import Icon from './components/Icon/Icon';
-import useCheckMobile from './hooks/useCheckMobile';
 import { useEffect, useState } from 'react';
-import SearchBar from './components/SearchBar/SearchBar';
+import apiResponse from './apiMock.json';
+import './App.scss';
+import Card from './components/Card/Card';
 import DropDown from './components/DropDown/DropDown';
+import Icon from './components/Icon/Icon';
+import SearchBar from './components/SearchBar/SearchBar';
+import useCheckMobile from './hooks/useCheckMobile';
 
 const App = () => {
   const { isMobile } = useCheckMobile();
   const headerLogoCondition = isMobile ? 'pet-icon-small' : 'pet-icon';
   const [headerLogo, setHeaderLogo] = useState(headerLogoCondition);
+
+  // TODO: delete mock file
+  const { pets } = apiResponse;
 
   useEffect(() => {
     setHeaderLogo(headerLogoCondition);
@@ -31,6 +36,12 @@ const App = () => {
         <DropDown />
 
         <h1>Results</h1>
+
+        <ul className="cards">
+          {pets.slice(0, 3).map((pet, index) => (
+            <Card key={`animal-card-${index}`} />
+          ))}
+        </ul>
       </div>
 
       <footer className="footer"></footer>
