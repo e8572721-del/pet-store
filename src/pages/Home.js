@@ -1,21 +1,22 @@
-import SearchBar from './../components/SearchBar/SearchBar';
-import DropDown from './../components/DropDown/DropDown';
-import Card from './../components/Card/Card';
-import Banner from './../components/Banner/Banner';
 import apiResponse from '../apiMock.json';
 import treats from '../assets/images/treats.jpg';
+import Banner from './../components/Banner/Banner';
+import Cards from './../components/Cards/Cards';
+import DropDown from './../components/DropDown/DropDown';
+import SearchBar from './../components/SearchBar/SearchBar';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
-  // TODO: delete mock file
   const { pets } = apiResponse;
+  const navigate = useNavigate();
 
-  // TODO: extract cards into their own component
+  // TODO: 3- delete mock file
 
-  // TODO: show available pets
   const availablePets = pets.filter((item) => item.available === 'Yes');
+
   const onBannerCtaClick = (event) => {
     event.preventDefault();
-    console.log(availablePets);
+    navigate(`/availablePets`, { state: availablePets });
   };
 
   return (
@@ -27,11 +28,7 @@ const Home = () => {
 
       <h2>Results</h2>
 
-      <ul className="cards">
-        {pets.slice(0, 3).map((pet, index) => (
-          <Card ctaLabel="View" data={pet} key={`animal-card-${index}`} />
-        ))}
-      </ul>
+      <Cards pets={pets} />
 
       <Banner
         ctaLabel="See all"
