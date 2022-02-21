@@ -1,0 +1,12 @@
+@mixin pill {
+  background-color: $colorWhite;
+  border-radius: rem-value(20);
+  border: 1px solid $colorLightGrey;
+  color: $colorBlack;
+  padding: rem-value(8) rem-value(16);
+
+  &:hover,
+  &:focus {
+    background-color: $colorLightGrey;
+  }
+} ;

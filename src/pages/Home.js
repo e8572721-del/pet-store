@@ -7,14 +7,15 @@ import SearchBar from './../components/SearchBar/SearchBar';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import './Home.scss';
+import { ButtonVariant } from './../components/Button/ButtonVariant';
+import Button from '../components/Button/Button';
 
 const Home = () => {
   const { pets } = apiResponse;
   const navigate = useNavigate();
 
-  const [filteredPets, setFilteredPets] = useState(pets);
+  const [resultedPets, setResultedPets] = useState(pets);
 
-  // TODO: 1- pill filter
   // TODO: 2- fuzzy search
   // TODO: 3- delete mock file
 
@@ -26,7 +27,22 @@ const Home = () => {
   };
 
   const onSpeciesFilter = (filterValue) => {
-    setFilteredPets(pets.filter((item) => item.species === filterValue));
+    setResultedPets(pets.filter((item) => item.species === filterValue));
+  };
+
+  const onDateFilterClick = () => {
+    const petCopy = [...pets];
+    const sortedPets = petCopy.sort((firstPet, secondPet) => {
+      const firstPetDateAdded = firstPet.dateAdded.split('-').reverse().join();
+      const secondPetDateAdded = secondPet.dateAdded.split('-').reverse().join();
+      return firstPetDateAdded > secondPetDateAdded
+        ? -1
+        : firstPetDateAdded < secondPetDateAdded
+        ? 1
+        : 0;
+    });
+
+    setResultedPets(sortedPets);
   };
 
   return (
@@ -35,15 +51,20 @@ const Home = () => {
 
       <SearchBar />
 
-      <ul className="dropDown__list">
+      <ul className="filter__list">
         <li>
           <DropDown name="Type" options={['Cat', 'Dog']} setFilterValue={onSpeciesFilter} />
+        </li>
+        <li>
+          <Button onClick={onDateFilterClick} variant={ButtonVariant.GREY}>
+            <span>Latest added</span>
+          </Button>
         </li>
       </ul>
 
       <h2>Results</h2>
 
-      <Cards pets={filteredPets} />
+      <Cards pets={resultedPets} />
 
       <Banner
         ctaLabel="See all"

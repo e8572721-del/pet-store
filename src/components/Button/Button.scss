@@ -17,6 +17,10 @@
     }
   }
 
+  &.-grey {
+    @include pill();
+  }
+
   &.-white {
     background-color: $colorWhite;
     color: $colorDarkestBlue;

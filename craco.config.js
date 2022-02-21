@@ -7,6 +7,7 @@ module.exports = {
           @import "src/assets/style/util/mixin/_breakpoint.scss";
           @import "src/assets/style/util/mixin/_fluid-type.scss";
           @import "src/assets/style/util/mixin/_photo.scss";
+          @import "src/assets/style/util/mixin/_pill.scss";
           @import "src/assets/style/util/function/_rem-value.scss";
         `,
       },

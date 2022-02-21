@@ -10,6 +10,7 @@ const Button = ({ children, isWide, onClick, variant }) => {
       className={classNames('button', {
         '-white': variant === ButtonVariant.WHITE,
         '-blue': variant === ButtonVariant.BLUE,
+        '-grey': variant === ButtonVariant.GREY,
         '-wide': isWide,
       })}
       onClick={onClick}
@@ -23,7 +24,7 @@ Button.propTypes = {
   children: PropTypes.node,
   isWide: PropTypes.bool,
   onClick: PropTypes.func,
-  variant: PropTypes.oneOf([ButtonVariant.BLUE, ButtonVariant.WHITE]),
+  variant: PropTypes.oneOf([ButtonVariant.BLUE, ButtonVariant.GREY, ButtonVariant.WHITE]),
 };
 
 export default Button;

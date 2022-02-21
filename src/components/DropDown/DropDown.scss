@@ -4,10 +4,8 @@
   }
 
   &__button {
-    background: $colorWhite;
-    border-radius: rem-value(50);
-    border: 1px solid $colorGrey;
-    padding: rem-value(6) rem-value(8);
+    @include pill();
+
     position: relative;
     text-align: left;
     width: 100%;
@@ -52,7 +50,7 @@
     &:focus,
     &:hover,
     [aria-selected='true'] {
-      background: $colorDarkGrey;
+      background: $colorLightGrey;
       cursor: pointer;
     }
   }
