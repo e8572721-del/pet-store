@@ -1,0 +1,12 @@
+.home {
+  .searchHeading {
+    margin: 0 0 rem-value(30);
+  }
+
+  .dropDown__list {
+    display: flex;
+    justify-content: flex-start;
+    gap: rem-value(8);
+    margin: 0 0 rem-value(60);
+  }
+}

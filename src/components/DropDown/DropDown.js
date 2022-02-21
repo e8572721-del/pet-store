@@ -1,53 +1,52 @@
 import React, { useState } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import './DropDown.scss';
 
-const DropDown = (props) => {
+const DropDown = ({ options, name, setFilterValue }) => {
   const [isOptionsOpen, setIsOptionsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(0);
+  const [selectedOption, setSelectedOption] = useState(null);
 
-  const optionsList = ['Option 1', 'Option 2', 'Option 3', 'Option 4', 'Option 5'];
+  const toggleOptions = () => setIsOptionsOpen(!isOptionsOpen);
 
-  const toggleOptions = () => {
-    setIsOptionsOpen(!isOptionsOpen);
-  };
-
-  const setSelectedThenCloseDropdown = (index) => {
-    setSelectedOption(index);
+  const setSelected = (option) => {
+    setSelectedOption(option);
     setIsOptionsOpen(false);
+    setFilterValue(options[option]);
   };
 
-  const handleKeyDown = (index) => (e) => {
-    switch (e.key) {
+  const handleKeyDown = (event, index) => {
+    switch (event.key) {
       case ' ':
       case 'SpaceBar':
       case 'Enter':
-        e.preventDefault();
-        setSelectedThenCloseDropdown(index);
+        event.preventDefault();
+        setSelected(index);
         break;
       default:
         break;
     }
   };
 
-  const handleListKeyDown = (e) => {
-    switch (e.key) {
+  const handleListKeyDown = (event) => {
+    switch (event.key) {
       case 'Escape':
-        e.preventDefault();
+        event.preventDefault();
         setIsOptionsOpen(false);
         break;
       case 'ArrowUp':
-        e.preventDefault();
-        setSelectedOption(selectedOption - 1 >= 0 ? selectedOption - 1 : optionsList.length - 1);
+        event.preventDefault();
+        setSelectedOption(selectedOption - 1 >= 0 ? selectedOption - 1 : options.length - 1);
         break;
       case 'ArrowDown':
-        e.preventDefault();
-        setSelectedOption(selectedOption === optionsList.length - 1 ? 0 : selectedOption + 1);
+        event.preventDefault();
+        setSelectedOption(selectedOption === options.length - 1 ? 0 : selectedOption + 1);
         break;
       default:
         break;
     }
   };
+
+  // TODO: replace button with Button component
 
   return (
     <div className="dropdown">
@@ -60,27 +59,25 @@ const DropDown = (props) => {
           onClick={toggleOptions}
           onKeyDown={handleListKeyDown}
         >
-          {optionsList[selectedOption]}
+          {selectedOption !== null ? options[selectedOption] : name}
         </button>
         <ul
           className={`dropdown__options ${isOptionsOpen ? 'dropdown__options-show' : ''}`}
           role="listbox"
-          aria-activedescendant={optionsList[selectedOption]}
+          aria-activedescendant={options[selectedOption]}
           tabIndex={-1}
           onKeyDown={handleListKeyDown}
         >
-          {optionsList.map((option, index) => (
+          {options.map((option, index) => (
             <li
               className="dropdown__option"
               id={option}
               key={`dropdown__option-${index}`}
               role="option"
               aria-selected={selectedOption === index}
-              tabIndex={0}
+              tabIndex={index}
               onKeyDown={handleKeyDown(index)}
-              onClick={() => {
-                setSelectedThenCloseDropdown(index);
-              }}
+              onClick={() => setSelected(index)}
             >
               {option}
             </li>
@@ -91,6 +88,10 @@ const DropDown = (props) => {
   );
 };
 
-// DropDown.propTypes = {};
+DropDown.propTypes = {
+  name: PropTypes.string,
+  options: PropTypes.arrayOf(PropTypes.string),
+  setFilterValue: PropTypes.func,
+};
 
 export default DropDown;
