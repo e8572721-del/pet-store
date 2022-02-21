@@ -1,6 +1,7 @@
 .dropdown {
   &__container {
     width: rem-value(100);
+    position: relative;
   }
 
   &__button {
@@ -32,11 +33,16 @@
   }
 
   &__options {
-    border: 1px solid $colorLightBlue;
+    background-color: $colorWhite;
     border-radius: rem-value(15);
+    border: 1px solid $colorLightBlue;
     display: none;
+    left: 0;
     margin-top: rem-value(-4);
     padding: rem-value(4) 0;
+    position: absolute;
+    top: rem-value(52);
+    width: 100%;
 
     &-show {
       display: block;

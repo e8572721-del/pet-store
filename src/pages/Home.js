@@ -16,7 +16,6 @@ const Home = () => {
 
   const [resultedPets, setResultedPets] = useState(pets);
 
-  // TODO: 2- fuzzy search
   // TODO: 3- delete mock file
 
   const availablePets = pets.filter((item) => item.available === 'Yes');
@@ -45,11 +44,13 @@ const Home = () => {
     setResultedPets(sortedPets);
   };
 
+  const onSearch = (result) => setResultedPets(result);
+
   return (
     <div className="home">
       <h1 className="searchHeading">Pets</h1>
 
-      <SearchBar />
+      <SearchBar setSearchValue={onSearch} />
 
       <ul className="filter__list">
         <li>

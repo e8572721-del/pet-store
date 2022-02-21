@@ -36,4 +36,20 @@
   &__label {
     position: relative;
   }
+
+  &__suggestions {
+    background-color: $colorWhite;
+    border-radius: rem-value(15);
+    border: 1px solid $colorLightBlue;
+    padding: rem-value(22) rem-value(58);
+    position: absolute;
+    top: rem-value(52);
+    width: 100%;
+    z-index: 2;
+    display: none;
+
+    &.-isActive {
+      display: block;
+    }
+  }
 }
