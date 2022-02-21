@@ -8,11 +8,12 @@ import { ButtonVariant } from './ButtonVariant';
 const Button = ({ children, className, href, onClick, variant }) => {
   const { isMobile } = useCheckMobile();
 
-  // TODO: make button accessible
-
   return (
     <a
-      className={`button ${className} ${variant === ButtonVariant.WHITE ? 'button-white' : ''}`}
+      aria-label={children}
+      className={`button ${className ? className : ''} ${
+        variant === ButtonVariant.WHITE ? 'button-white' : ''
+      }`}
       href={href}
       onClick={onClick}
     >
