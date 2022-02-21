@@ -4,6 +4,7 @@ import useCheckMobile from './../../hooks/useCheckMobile';
 import Button from './../Button/Button';
 import { ButtonVariant } from './../Button/ButtonVariant';
 import './Banner.scss';
+import Icon from './../Icon/Icon';
 
 const Banner = ({ ctaLabel, description, heading, onBannerCtaClick, photo, photoAlt }) => {
   const { isMobile } = useCheckMobile();
@@ -14,12 +15,12 @@ const Banner = ({ ctaLabel, description, heading, onBannerCtaClick, photo, photo
         <h1 className="banner__heading">{heading}</h1>
         {!isMobile && <p className="banner__description">{description}</p>}
         <Button
-          className="banner__cta"
-          href="#"
+          isWide={true}
           onClick={onBannerCtaClick}
           variant={isMobile ? ButtonVariant.BLUE : ButtonVariant.WHITE}
         >
-          {ctaLabel}
+          {isMobile && <Icon className="button__icon" name="arrow-right" />}
+          {!isMobile && <h4>{ctaLabel}</h4>}
         </Button>
       </div>
       <img className="banner__photo" src={photo} alt={photoAlt} />

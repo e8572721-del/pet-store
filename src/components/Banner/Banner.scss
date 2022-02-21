@@ -26,12 +26,6 @@
     }
   }
 
-  &__cta {
-    @include breakpoint(LARGE) {
-      padding: rem-value(25) rem-value(115);
-    }
-  }
-
   &__description,
   &__heading {
     color: $colorWhite;
