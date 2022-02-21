@@ -3,15 +3,14 @@ import Icon from './../Icon/Icon';
 import { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import Fuse from 'fuse.js';
-import data from '../../apiMock.json';
 import classNames from 'classnames';
 
-const SearchBar = ({ setSearchValue }) => {
+const SearchBar = ({ pets, setSearchValue }) => {
   const searchInput = useRef(null);
   const [suggestions, setSuggestions] = useState([]);
 
   const onChange = (event) => {
-    const fuse = new Fuse(data.pets, { keys: ['name', 'species'] });
+    const fuse = new Fuse(pets, { keys: ['name', 'species'] });
     const result = fuse.search(event.target.value);
     let finalResult = [];
 
@@ -46,7 +45,8 @@ const SearchBar = ({ setSearchValue }) => {
                 '-isActive': suggestions.length > 0,
               })}
             >
-              {suggestions.length > 0 && suggestions.map((item) => <li>{item.name}</li>)}
+              {suggestions.length > 0 &&
+                suggestions.map((item, index) => <li key={`animal-${index}`}>{item.name}</li>)}
             </ul>
           </label>
         </fieldset>

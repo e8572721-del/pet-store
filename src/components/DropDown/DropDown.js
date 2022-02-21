@@ -46,8 +46,6 @@ const DropDown = ({ options, name, setFilterValue }) => {
     }
   };
 
-  // TODO: replace button with Button component
-
   return (
     <div className="dropdown">
       <div className="dropdown__container">
