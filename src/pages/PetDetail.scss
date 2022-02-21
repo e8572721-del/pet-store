@@ -1,0 +1,8 @@
+.petDetail {
+  display: flex;
+  gap: rem-value(20);
+
+  &__photo {
+    @include photo();
+  }
+}

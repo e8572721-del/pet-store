@@ -1,24 +1,26 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Button from './../Button/Button';
 import { ButtonVariant } from './../Button/ButtonVariant';
 import './Card.scss';
-import dogImage from './dog.jpeg';
 
-const Card = ({ data }) => {
-  // TODO: use card props to display data
-  // TODO: cleanup dogImage
+const Card = ({ data, ctaLabel }) => {
+  const navigate = useNavigate();
 
-  const onCardClick = () => {
-    // TODO: route to pet/:id page
+  const { id, photo, ...cleanData } = data;
+
+  const onCardClick = (event) => {
+    event.preventDefault();
+    navigate(`/pets/${data.id}`, { state: { detail: cleanData, photo: data.photo } });
   };
 
   return (
     <li className="card">
-      <img className="card__photo" src={dogImage} alt="A cat named Dann" />
-      <h3>Dann</h3>
+      <img className="card__photo" src={data.photo} alt={`A ${data.species} named ${data.name}`} />
+      <h3>{data.name}</h3>
       <Button href="#" onClick={onCardClick} variant={ButtonVariant.BLUE}>
-        View
+        {ctaLabel}
       </Button>
     </li>
   );

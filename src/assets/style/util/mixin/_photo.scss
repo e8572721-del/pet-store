@@ -1,0 +1,11 @@
+@mixin photo {
+  border-radius: rem-value(15);
+  height: rem-value(130);
+  object-fit: cover;
+  width: rem-value(170);
+
+  @include breakpoint(LARGE) {
+    height: rem-value(250);
+    width: rem-value(328);
+  }
+}
