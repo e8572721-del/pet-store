@@ -4,9 +4,12 @@ import { useNavigate } from 'react-router-dom';
 import Button from './../Button/Button';
 import { ButtonVariant } from './../Button/ButtonVariant';
 import './Card.scss';
+import useCheckMobile from './../../hooks/useCheckMobile';
+import Icon from './../Icon/Icon';
 
 const Card = ({ data, ctaLabel }) => {
   const navigate = useNavigate();
+  const { isMobile } = useCheckMobile();
 
   const { id, photo, ...cleanData } = data;
 
@@ -18,9 +21,10 @@ const Card = ({ data, ctaLabel }) => {
   return (
     <li className="card">
       <img className="card__photo" src={data.photo} alt={`A ${data.species} named ${data.name}`} />
-      <h3>{data.name}</h3>
-      <Button href="#" onClick={onCardClick} variant={ButtonVariant.BLUE}>
-        {ctaLabel}
+      <h3>{data.name || 'N/A'}</h3>
+      <Button onClick={onCardClick} variant={ButtonVariant.BLUE}>
+        {isMobile && <Icon className="button__icon" name="arrow-right" />}
+        {!isMobile && <h4>{ctaLabel}</h4>}
       </Button>
     </li>
   );

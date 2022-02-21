@@ -1,0 +1,11 @@
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: rem-value(20);
+  margin: rem-value(20) 0 rem-value(45);
+
+  @include breakpoint(LARGE) {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
