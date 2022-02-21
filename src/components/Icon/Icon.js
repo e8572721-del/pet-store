@@ -1,10 +1,13 @@
 import './Icon.scss';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 const svgContext = require.context('!@svgr/webpack!../../assets/svg/?inline', false, /\.svg$/);
 
 const Icon = ({ className, name }) => {
-  return <span className={`icon ${className}`}>{svgContext(`./${name}.svg`).default()}</span>;
+  return (
+    <span className={classNames('icon', className)}>{svgContext(`./${name}.svg`).default()}</span>
+  );
 };
 
 Icon.propTypes = {

@@ -1,34 +1,29 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import useCheckMobile from './../../hooks/useCheckMobile';
-import Icon from './../Icon/Icon';
 import './Button.scss';
 import { ButtonVariant } from './ButtonVariant';
+import classNames from 'classnames';
 
-const Button = ({ children, className, href, onClick, variant }) => {
-  const { isMobile } = useCheckMobile();
-
+const Button = ({ children, isWide, onClick, variant }) => {
   return (
-    <a
-      aria-label={children}
-      className={`button ${className ? className : ''} ${
-        variant === ButtonVariant.WHITE ? 'button-white' : ''
-      }`}
-      href={href}
+    <button
+      className={classNames('button', {
+        '-white': variant === ButtonVariant.WHITE,
+        '-blue': variant === ButtonVariant.BLUE,
+        '-wide': isWide,
+      })}
       onClick={onClick}
     >
-      {isMobile && <Icon className="button__icon" name="arrow-right" />}
-      {!isMobile && <h4>{children}</h4>}
-    </a>
+      {children}
+    </button>
   );
 };
 
 Button.propTypes = {
-  children: PropTypes.string,
-  className: PropTypes.string,
-  href: PropTypes.string,
+  children: PropTypes.node,
+  isWide: PropTypes.bool,
   onClick: PropTypes.func,
-  variant: PropTypes.oneOf([ButtonVariant.BLUE, ButtonVariant.WHITE]).isRequired,
+  variant: PropTypes.oneOf([ButtonVariant.BLUE, ButtonVariant.WHITE]),
 };
 
 export default Button;
