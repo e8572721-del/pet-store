@@ -1,15 +1,4 @@
 .app {
-  .cards {
-    display: flex;
-    flex-direction: column;
-    gap: rem-value(25);
-    margin: rem-value(20) 0 rem-value(45);
-
-    @include breakpoint(LARGE) {
-      flex-direction: row;
-    }
-  }
-
   .container {
     margin: 0 auto;
     padding: rem-value(10) rem-value(20);
@@ -29,13 +18,20 @@
     background-color: $colorWhite;
     padding: rem-value(30) rem-value(20);
 
+    &__logo {
+      height: rem-value(46);
+      width: rem-value(46);
+    }
+
     @include breakpoint(LARGE) {
       background-color: $colorLightYellow;
       height: rem-value(90);
       padding: rem-value(15) rem-value(75);
-    }
 
-    &__inner {
+      &__logo {
+        height: rem-value(60);
+        width: rem-value(60);
+      }
     }
   }
 
