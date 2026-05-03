@@ -1,13 +1,8 @@
-import axios from 'axios';
-import { API_URL } from './api.json';
+import { pets } from './api.json';
 
 const fetchData = () => {
-  return axios
-    .get(API_URL)
-    .then((response) => response.data.pets)
-    .catch((error) => {
-      console.error(error);
-    });
+  // Simulate async API behavior while using local fixture data.
+  return Promise.resolve(pets);
 };
 
 export default fetchData;
