@@ -22,7 +22,7 @@ const Home = () => {
     fetchData().then((apiResponse) => {
       setResultedPets(apiResponse);
     });
-  }, []);
+  }, [resultedPets.length]);
 
   useEffect(() => {
     setAvailablePets(resultedPets.filter((item) => item.available === 'Yes'));
